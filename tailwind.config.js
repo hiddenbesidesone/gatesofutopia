@@ -39,15 +39,15 @@ export default {
         mobileGallery: 'calc(100vw - 3rem)',
       },
       fontFamily: {
-        sans: ['Helvetica Neue', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        serif: ['"IBMPlexSerif"', 'Palatino', 'ui-serif'],
+        sans: ['Fragment Mono', 'monospace', 'sans-serif'],
+        serif: ['Anonymous Pro', 'monospace', 'sans-serif'],
       },
       fontSize: {
         display: ['var(--font-size-display)', '1.1'],
-        heading: ['var(--font-size-heading)', '1.25'],
-        lead: ['var(--font-size-lead)', '1.333'],
-        copy: ['var(--font-size-copy)', '1.5'],
-        fine: ['var(--font-size-fine)', '1.333'],
+        heading: ['var(--font-size-heading)', '1.1'],
+        lead: ['var(--font-size-lead)', '1.1'],
+        copy: ['var(--font-size-copy)', '1.1'],
+        fine: ['var(--font-size-fine)', '1.1'],
       },
       maxWidth: {
         'prose-narrow': '45ch',

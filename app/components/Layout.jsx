@@ -3,6 +3,7 @@ import {useWindowScroll} from 'react-use';
 import {Disclosure} from '@headlessui/react';
 import {Suspense, useEffect, useMemo} from 'react';
 import {CartForm} from '@shopify/hydrogen';
+import {Image} from '@shopify/hydrogen';
 import {
   Drawer,
   useDrawer,
@@ -127,7 +128,7 @@ function CartDrawer({isOpen, onClose}) {
  */
 export function MenuDrawer({isOpen, onClose, menu}) {
   return (
-    <Drawer open={isOpen} onClose={onClose} openFrom="left" heading="Menu">
+    <Drawer open={isOpen} onClose={onClose} openFrom="left" heading="🛍 Menu">
       <div className="grid">
         <MenuMobileNav menu={menu} onClose={onClose} />
       </div>
@@ -143,7 +144,7 @@ export function MenuDrawer({isOpen, onClose, menu}) {
  */
 function MenuMobileNav({menu, onClose}) {
   return (
-    <nav className="grid gap-4 p-6 sm:gap-6 sm:px-12 sm:py-8">
+    <nav className="grid gap-4 p-3 sm:gap-6 sm:px-12 sm:py-8">
       {/* Top level menu items */}
       {(menu?.items || []).map((item) => (
         <span key={item.id} className="block">
@@ -223,8 +224,15 @@ function MobileHeader({title, isHome, openCart, openMenu}) {
         className="flex items-center self-stretch leading-[3rem] md:leading-[4rem] justify-center flex-grow w-full h-full"
         to="/"
       >
+        <Image
+          src="https://cdn.shopify.com/s/files/1/0790/8458/5266/files/gloves_9028b54e-86e7-40a7-ac39-9f8919e56377.png?v=1689259127"
+          alt="Gates Of Utopia"
+          sizes="(min-width: 3em) 20vw, 50vw"
+          aspectRatio="3/2"
+          width="60"
+        />
         <Heading
-          className="font-bold text-center leading-none"
+          className="hidden font-bold text-center leading-none"
           as={isHome ? 'h1' : 'h2'}
         >
           {title}
@@ -255,17 +263,23 @@ function DesktopHeader({isHome, menu, openCart, title}) {
       role="banner"
       className={`${
         isHome
-          ? 'bg-primary/80 dark:bg-contrast/60 text-contrast dark:text-primary shadow-darkHeader'
-          : 'bg-contrast/80 text-primary'
+          ? 'bg-contrast/60 text-contrast text-primary shadow-darkHeader'
+          : 'bg-conbg-contrast/80 text-primary shadow-darkHeadertrast/80 text-primary'
       } ${
         !isHome && y > 50 && ' shadow-lightHeader'
-      } hidden h-nav lg:flex items-center sticky transition duration-300 backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-8 px-12 py-8`}
+      } hidden h-nav lg:flex items-center sticky transition duration-300 backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-8 px-3 py-2`}
     >
       <div className="flex gap-12">
         <Link className="font-bold" to="/" prefetch="intent">
-          {title}
+          <Image
+            src="https://cdn.shopify.com/s/files/1/0790/8458/5266/files/gloves_9028b54e-86e7-40a7-ac39-9f8919e56377.png?v=1689259127"
+            alt="Gates Of Utopia"
+            sizes="(min-width: 3em) 20vw, 50vw"
+            aspectRatio="3/2"
+            width="60"
+          />
         </Link>
-        <nav className="flex gap-8">
+        <nav className="flex gap-8 items-center hb1-font-custom-small">
           {/* Top level menu items */}
           {(menu?.items || []).map((item) => (
             <Link
@@ -274,7 +288,7 @@ function DesktopHeader({isHome, menu, openCart, title}) {
               target={item.target}
               prefetch="intent"
               className={({isActive}) =>
-                isActive ? 'pb-1 border-b -mb-px' : 'pb-1'
+                isActive ? 'border-b -mb-px uppercase' : ' uppercase'
               }
             >
               {item.title}
@@ -296,7 +310,7 @@ function DesktopHeader({isHome, menu, openCart, title}) {
             }
             type="search"
             variant="minisearch"
-            placeholder="Search"
+            placeholder="Search/"
             name="q"
           />
           <button
@@ -412,13 +426,37 @@ function Footer({menu}) {
     : [];
 
   return (
-    <Section
+    <div
       divider={isHome ? 'none' : 'top'}
       as="footer"
       role="contentinfo"
-      className={`grid min-h-[25rem] items-start grid-flow-row w-full gap-6 py-8 px-6 md:px-8 lg:px-12 md:gap-8 lg:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-${itemsCount}
-        bg-primary dark:bg-contrast dark:text-primary text-contrast overflow-hidden`}
+      className={`w-full grid md:grid-cols-3 border-solid border-gray-400 border-y`}
     >
+      <div className="col-span-2 py-3 px-3 hb1-font-custom-small">
+        {/*<CountrySelector />*/}
+      </div>
+      <div className="grid grid-cols-12 col-span-1 border-gray-400 md:border-l hb1-font-custom-small text-center">
+        <div className="col-span-6 py-3 px-3">&copy; {new Date().getFullYear()} Gates Of Utopia ㋡</div>
+        <div className="col-span-4 border-solid border-gray-400 border-l py-3 px-3">
+          <Link to={`/contact`} prefetch="intent">Contact &amp; Support</Link>
+        </div>
+        <div className="col-span-1 border-solid border-gray-400 border-l py-3 px-3">
+          <Link to={`https://google.com`} prefetch="intent" target="blank">IG</Link>
+        </div>
+        <div className="col-span-1 border-solid border-gray-400 border-l py-3 px-3">
+          <Link to={`/btcpayments`} prefetch="intent">
+            <Image
+              src="https://cdn.shopify.com/s/files/1/0795/8003/7439/files/bitcoin-logo.png?v=1690144285"
+              alt="Bitcoin Payments Accepted"
+              sizes="(min-width: 3em) 20vw, 50vw"
+              aspectRatio="1/1"
+              width="18"
+              className="mx-auto"
+            />
+          </Link>
+        </div>
+      </div>
+      {/*
       <FooterMenu menu={menu} />
       <CountrySelector />
       <div
@@ -427,7 +465,8 @@ function Footer({menu}) {
         &copy; {new Date().getFullYear()} / Shopify, Inc. Hydrogen is an MIT
         Licensed Open Source project.
       </div>
-    </Section>
+    */}
+    </div>
   );
 }
 
