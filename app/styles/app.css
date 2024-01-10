@@ -226,5 +226,5 @@ shop-pay-button {
 }
 
 .cust-cursor-2 {
-  cursor: url("public/hand.png"), default;
+  /* cursor: url("public/hand.png"), default; */
 }
