@@ -11,6 +11,11 @@ import {
 } from '@shopify/hydrogen';
 import invariant from 'tiny-invariant';
 import clsx from 'clsx';
+
+import { Image } from '@shopify/hydrogen';
+import { MediaFile } from '@shopify/hydrogen';
+import { ModelViewer } from '@shopify/hydrogen';
+
 import {
   Heading,
   IconCaret,
@@ -136,20 +141,24 @@ export default function Product() {
 
   return (
     <>
-      <Section className="px-0 md:px-8 lg:px-12">
+      <Section className="px-0 md:px-3 lg:px-3">
+
+        <ModelViewer data={product.media.nodes[0]} key={product.id} enableZoom={true} enableRotate={true} alt={product.id} className="object-cover w-full h-full aspect-square fadeIn" />
+        <MediaFile data={product.media.nodes[1]} key={product.id} className="object-cover w-full h-full aspect-square fadeIn" />
+
         <div className="grid items-start md:gap-6 lg:gap-20 md:grid-cols-2 lg:grid-cols-3">
           <ProductGallery
             media={media.nodes}
             className="w-full lg:col-span-2"
           />
-          <div className="sticky md:-mb-nav md:top-nav md:-translate-y-nav md:h-screen md:pt-nav hiddenScroll md:overflow-y-scroll">
-            <section className="flex flex-col w-full max-w-xl gap-8 p-6 md:mx-auto md:max-w-sm md:px-0">
+          <div className="sticky md:-mb-nav md:top-nav md:-translate-y-nav md:h-screen md:pt-nav hiddenScroll md:overflow-y-scroll border-solid border-gray-400 border-t md:border-t-0">
+            <section className="flex flex-col w-full max-w-xl gap-3 p-3 lg:p-6 md:mx-auto md:max-w-sm md:px-0">
               <div className="grid gap-2">
                 <Heading as="h1" className="whitespace-normal">
                   {title}
                 </Heading>
                 {vendor && (
-                  <Text className={'opacity-50 font-medium'}>{vendor}</Text>
+                  <Text className={'opacity-70 font-medium'}>{vendor}</Text>
                 )}
               </div>
               <Suspense fallback={<ProductForm variants={[]} />}>
@@ -164,7 +173,7 @@ export default function Product() {
                   )}
                 </Await>
               </Suspense>
-              <div className="grid gap-4 py-4">
+              <div className="grid gap-4 py-3 px-3 border-solid border-gray-400 border">
                 {descriptionHtml && (
                   <ProductDetail
                     title="Product Details"
@@ -196,7 +205,7 @@ export default function Product() {
           resolve={recommended}
         >
           {(products) => (
-            <ProductSwimlane title="Related Products" products={products} />
+            <ProductSwimlane title="⚡️ シリーズ MORE GOODIES" products={products} />
           )}
         </Await>
       </Suspense>
@@ -396,7 +405,7 @@ export function ProductForm({variants}) {
  */
 function ProductDetail({title, content, learnMore}) {
   return (
-    <Disclosure key={title} as="div" className="grid w-full gap-2">
+    <Disclosure key={title} as="div" className="grid w-full gap-2 py-3 border-solid border-gray-400 border-b">
       {({open}) => (
         <>
           <Disclosure.Button className="text-left">
@@ -415,13 +424,13 @@ function ProductDetail({title, content, learnMore}) {
 
           <Disclosure.Panel className={'pb-4 pt-2 grid gap-2'}>
             <div
-              className="prose dark:prose-invert"
+              className="hb1-font-custom-small"
               dangerouslySetInnerHTML={{__html: content}}
             />
             {learnMore && (
               <div className="">
                 <Link
-                  className="pb-px border-b border-primary/30 text-primary/50"
+                  className="hb1-font-custom-small px-2 py-1 border border-black p-4 bg-white rounded-sm hover:border-green-500 hover:text-green-500 transition-colors"
                   to={learnMore}
                 >
                   Learn more

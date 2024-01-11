@@ -64,13 +64,15 @@ export async function loader({params, context}) {
         language,
       },
     }),
+    /**
     tertiaryHero: context.storefront.query(COLLECTION_HERO_QUERY, {
       variables: {
-        handle: 'winter-2022',
+        handle: 'backcountry',
         country,
         language,
       },
     }),
+    */
     analytics: {
       pageType: AnalyticsPageType.home,
     },
@@ -105,7 +107,7 @@ export default function Homepage() {
               return (
                 <ProductSwimlane
                   products={products}
-                  title="Featured Products"
+                  title="⚡️ 店 ⚡️ NEW DROPS/"
                   count={4}
                 />
               );
@@ -133,7 +135,7 @@ export default function Homepage() {
               return (
                 <FeaturedCollections
                   collections={collections}
-                  title="Collections"
+                  title="⚡️ コレクション ⚡️ COLLECTIONS/"
                 />
               );
             }}
@@ -141,6 +143,7 @@ export default function Homepage() {
         </Suspense>
       )}
 
+      {/*
       {tertiaryHero && (
         <Suspense fallback={<Hero {...skeletons[2]} />}>
           <Await resolve={tertiaryHero}>
@@ -151,6 +154,7 @@ export default function Homepage() {
           </Await>
         </Suspense>
       )}
+      */}
     </>
   );
 }

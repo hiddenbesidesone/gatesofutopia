@@ -35,9 +35,9 @@ export function ProductCard({
   if (label) {
     cardLabel = label;
   } else if (isDiscounted(price, compareAtPrice)) {
-    cardLabel = 'Sale';
+    cardLabel = '🍒 Sale/';
   } else if (isNewArrival(product.publishedAt)) {
-    cardLabel = 'New';
+    cardLabel = '🍬 New/';
   }
 
   const productAnalytics = {
@@ -51,19 +51,20 @@ export function ProductCard({
   };
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col border-solid border-gray-400 border-l border-r border-b sm:border-b md:border-l-0 lg:border-l-0 lg:border-b lg:border-r lg:[&:nth-child(3n+3)]:border-r-0 hb1--prod-bg">
       <Link
         onClick={onClick}
         to={`/products/${product.handle}`}
         prefetch="intent"
       >
-        <div className={clsx('grid gap-4', className)}>
-          <div className="card-image aspect-[4/5] bg-primary/5">
+        <div className={clsx('grid cust-cursor-1 relative', className)}>
+
+          <div className="card-image aspect-[5/5]">
             {image && (
               <Image
                 className="object-cover w-full fadeIn"
                 sizes="(min-width: 64em) 25vw, (min-width: 48em) 30vw, 45vw"
-                aspectRatio="4/5"
+                aspectRatio="5/5"
                 data={image}
                 alt={image.altText || `Picture of ${product.title}`}
                 loading={loading}
@@ -72,30 +73,33 @@ export function ProductCard({
             <Text
               as="label"
               size="fine"
-              className="absolute top-0 right-0 m-4 text-right text-notice"
+              className="absolute top-0 right-0 m-4 text-right text-black px-2 py-1 bg-white rounded-sm"
             >
               {cardLabel}
             </Text>
           </div>
-          <div className="grid gap-1">
-            <Text
-              className="w-full overflow-hidden whitespace-nowrap text-ellipsis "
-              as="h3"
-            >
-              {product.title}
-            </Text>
-            <div className="flex gap-4">
-              <Text className="flex gap-4">
-                <Money withoutTrailingZeros data={price} />
-                {isDiscounted(price, compareAtPrice) && (
-                  <CompareAtPrice
-                    className={'opacity-50'}
-                    data={compareAtPrice}
-                  />
-                )}
+
+          <div className="w-full absolute bottom-0 left-0 gap-1 p-3">
+            <div className="flex flex-row justify-between">
+
+              <Text className="w-full overflow-hidden whitespace-nowrap text-ellipsis" as="h3">
+                {product.title}
               </Text>
+
+              <div className="bg-white rounded-sm">
+                <Text className="flex gap-4">
+                  <Money withoutTrailingZeros data={price} />
+                  {isDiscounted(price, compareAtPrice) && (
+                    <CompareAtPrice
+                      className={'opacity-50'}
+                      data={compareAtPrice}
+                    />
+                  )}
+                </Text>
+              </div>
             </div>
           </div>
+
         </div>
       </Link>
       {quickAdd && firstVariant.availableForSale && (

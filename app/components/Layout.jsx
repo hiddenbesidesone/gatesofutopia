@@ -264,7 +264,7 @@ function DesktopHeader({isHome, menu, openCart, title}) {
       className={`${
         isHome
           ? 'bg-contrast/60 text-contrast text-primary shadow-darkHeader'
-          : 'bg-conbg-contrast/80 text-primary shadow-darkHeadertrast/80 text-primary'
+          : 'bg-contrast/80 text-primary shadow-darkHeader'
       } ${
         !isHome && y > 50 && ' shadow-lightHeader'
       } hidden h-nav lg:flex items-center sticky transition duration-300 backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-8 px-3 py-2`}
