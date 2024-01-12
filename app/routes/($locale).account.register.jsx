@@ -101,7 +101,7 @@ export default function Register() {
   return (
     <div className="flex justify-center my-24 px-4">
       <div className="max-w-md w-full">
-        <h1 className="text-4xl">Create an Account.</h1>
+        <h1 className="text-small">Create an Account.</h1>
         {/* TODO: Add onSubmit to validate _before_ submission with native? */}
         <Form
           method="post"
@@ -115,7 +115,7 @@ export default function Register() {
           )}
           <div>
             <input
-              className={`mb-1 ${getInputStyleClasses(nativeEmailError)}`}
+              className={`mb-1 text-xs ${getInputStyleClasses(nativeEmailError)}`}
               id="email"
               name="email"
               type="email"
@@ -140,7 +140,7 @@ export default function Register() {
           </div>
           <div>
             <input
-              className={`mb-1 ${getInputStyleClasses(nativePasswordError)}`}
+              className={`mb-1 text-xs ${getInputStyleClasses(nativePasswordError)}`}
               id="password"
               name="password"
               type="password"
@@ -175,7 +175,7 @@ export default function Register() {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-primary text-contrast rounded py-2 px-4 focus:shadow-outline block w-full"
+              className="bg-primary text-contrast rounded py-2 px-4 focus:shadow-outline block w-full uppercase"
               type="submit"
               disabled={!!(nativePasswordError || nativeEmailError)}
             >

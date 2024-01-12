@@ -59,7 +59,7 @@ export default function AllProducts() {
 
   return (
     <>
-      <PageHeader heading="All Products" variant="allCollections" />
+      <PageHeader heading="⚡️ 利用可能 ⚡️ Available/" variant="allCollections" variant="allCollections" />
       <Section>
         <Pagination connection={products}>
           {({nodes, isLoading, NextLink, PreviousLink}) => {
@@ -73,11 +73,13 @@ export default function AllProducts() {
 
             return (
               <>
+                {/* HB1 -
                 <div className="flex items-center justify-center mt-6">
                   <PreviousLink className="inline-block rounded font-medium text-center py-3 px-6 border border-primary/10 bg-contrast text-primary w-full">
                     {isLoading ? 'Loading...' : 'Previous'}
                   </PreviousLink>
                 </div>
+                */}
                 <Grid data-test="product-grid">{itemsMarkup}</Grid>
                 <div className="flex items-center justify-center mt-6">
                   <NextLink className="inline-block rounded font-medium text-center py-3 px-6 border border-primary/10 bg-contrast text-primary w-full">

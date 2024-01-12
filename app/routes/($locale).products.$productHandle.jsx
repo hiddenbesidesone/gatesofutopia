@@ -256,9 +256,7 @@ export function ProductForm({variants}) {
                 key={option.name}
                 className="flex flex-col flex-wrap mb-4 gap-y-2 last:mb-0"
               >
-                <Heading as="legend" size="lead" className="min-w-[4rem]">
-                  {option.name}
-                </Heading>
+                <legend class="whitespace-pre-wrap max-w-prose text-copy min-w-[4rem]">{option.name}</legend>
                 <div className="flex flex-wrap items-baseline gap-4">
                   {option.values.length > 7 ? (
                     <div className="relative w-full">
@@ -326,9 +324,9 @@ export function ProductForm({variants}) {
                         prefetch="intent"
                         replace
                         className={clsx(
-                          'leading-none py-1 border-b-[1.5px] cursor-pointer transition-all duration-200',
+                          'hb1-font-custom-small leading-none py-1 border-b-[1.5px] cursor-pointer transition-all duration-200',
                           isActive ? 'border-primary/50' : 'border-primary/0',
-                          isAvailable ? 'opacity-100' : 'opacity-50',
+                          isAvailable ? 'opacity-100' : 'opacity-100',
                         )}
                       >
                         {value}
