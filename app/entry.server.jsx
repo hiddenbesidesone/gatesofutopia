@@ -16,11 +16,26 @@ export default async function handleRequest(
   remixContext,
 ) {
   const {nonce, header, NonceProvider} = createContentSecurityPolicy({
+    defaultSrc: [
+      "'self'",
+      'cdn.shopify.com',
+      'shopify.com',
+      '*.youtube.com',
+      '*.google.com',
+      'fonts.gstatic.com',
+    ],
+    imgSrc: [
+      "'self'",
+      'data:',
+      'cdn.shopify.com',
+    ],
     styleSrc: [
       "'self'",
-      'https://cdn.shopify.com',
-      'https://fonts.googleapis.com',
-      'https://cur.cursors-4u.net',
+      'fonts.googleapis.com',
+      'cdn.shopify.com',
+    ],
+    scriptSrc: [
+      "'self'",
       'https://unpkg.com/@google/model-viewer@v1.12.1/dist/model-viewer.min.js',
     ],
   });
