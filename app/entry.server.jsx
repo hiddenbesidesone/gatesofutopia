@@ -28,6 +28,7 @@ export default async function handleRequest(
       "'self'",
       'data:',
       'cdn.shopify.com',
+      'https://cur.cursors-4u.net/nature/nat-11/nat1021.cur',
     ],
     styleSrc: [
       "'self'",
@@ -37,6 +38,7 @@ export default async function handleRequest(
     scriptSrc: [
       "'self'",
       'https://unpkg.com/@google/model-viewer@v1.12.1/dist/model-viewer.min.js',
+      'cdn.shopify.com',
     ],
   });
   const body = await renderToReadableStream(
