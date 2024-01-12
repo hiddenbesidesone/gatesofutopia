@@ -40,10 +40,6 @@ export default async function handleRequest(
       'https://unpkg.com/@google/model-viewer@v1.12.1/dist/model-viewer.min.js',
       'cdn.shopify.com',
     ],
-    connectSrc: [
-      "'self'",
-      'https://cdn.shopify.com/3d/models/o/4a01d2c14087968e/amplifier_mat.usdz',
-    ],
   });
   const body = await renderToReadableStream(
     <NonceProvider>
