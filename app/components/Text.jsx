@@ -80,7 +80,7 @@ export function Heading({
   const sizes = {
     display: 'text-display', // HB1_ display: 'font-bold text-display',
     heading: 'text-heading', // HB1_ heading: 'font-bold text-heading',
-    lead: 'text-lead uppercase pb-3 md:px-3 md:py-3', // HB1_ lead: 'font-bold text-lead uppercase',
+    lead: 'text-lead uppercase pb-3 px-3 py-3', // HB1_ lead: 'font-bold text-lead uppercase',
     copy: 'text-copy', // HB1_ copy: 'font-medium text-copy',
   };
 
@@ -182,7 +182,7 @@ export function PageHeader({
   ...props
 }) {
   const variants = {
-    default: 'grid w-full gap-8 p-3 py-3 md:p-3 lg:p-3 justify-items-start border-solid border-gray-400 border-b',
+    default: 'grid w-full gap-8 p-3 pb-0 md:p-3 md:pb-0 lg:p-3 lg:pb-0 justify-items-start border-solid border-gray-400 border-b',
     blogPost:
       'grid md:text-center w-full gap-4 p-6 py-8 md:p-8 lg:p-12 md:justify-items-center',
     allCollections:

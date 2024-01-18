@@ -38,18 +38,21 @@ export default function Collections() {
 
   return (
     <>
-      <PageHeader heading="Collections" />
+      <PageHeader heading="⚡️ 店 ⚡️ Collections/" />
       <Section>
         <Pagination connection={collections}>
           {({nodes, isLoading, PreviousLink, NextLink}) => (
             <>
+              {/*
               <div className="flex items-center justify-center mb-6">
                 <Button as={PreviousLink} variant="secondary" width="full">
                   {isLoading ? 'Loading...' : 'Previous collections'}
                 </Button>
               </div>
+              */}
+
               <Grid
-                items={nodes.length === 3 ? 3 : 2}
+                items="1" //items={nodes.length === 3 ? 3 : 2}
                 data-test="collection-grid"
               >
                 {nodes.map((collection, i) => (
@@ -60,11 +63,14 @@ export default function Collections() {
                   />
                 ))}
               </Grid>
+
+              {/*
               <div className="flex items-center justify-center mt-6">
                 <Button as={NextLink} variant="secondary" width="full">
                   {isLoading ? 'Loading...' : 'Next collections'}
                 </Button>
               </div>
+              */}
             </>
           )}
         </Pagination>
@@ -81,18 +87,18 @@ export default function Collections() {
  */
 function CollectionCard({collection, loading}) {
   return (
-    <Link to={`/collections/${collection.handle}`} className="grid gap-4">
-      <div className="card-image bg-primary/5 aspect-[3/2]">
+    <Link to={`/collections/${collection.handle}`} className="relative grid gap-1">
+      <div className="card-image bg-primary/5 aspect-[16/9]">
         {collection?.image && (
           <Image
             data={collection.image}
-            aspectRatio="6/4"
+            aspectRatio="16/9"
             sizes="(max-width: 32em) 100vw, 45vw"
             loading={loading}
           />
         )}
       </div>
-      <Heading as="h3" size="copy">
+      <Heading size="copy" className="absolute bottom-5 left-5 gap-1 p-3 whitespace-pre-wrap text-display max-w-md px-1 py-1 bg-white rounded-sm dark:text-primary text-contrast">
         {collection.title}
       </Heading>
     </Link>
