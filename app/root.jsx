@@ -11,7 +11,7 @@ import {
   useMatches,
   useRouteError,
 } from '@remix-run/react';
-import {ShopifySalesChannel, Seo, useNonce} from '@shopify/hydrogen';
+import { ShopifySalesChannel, Seo, useNonce, Script } from '@shopify/hydrogen';
 import invariant from 'tiny-invariant';
 
 import {Layout} from '~/components';

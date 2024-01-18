@@ -59,7 +59,7 @@ export function ProductCard({
       >
         <div className={clsx('grid cust-cursor-1 relative', className)}>
 
-          <div className="card-image aspect-[5/5]">
+          <div className="card-image aspect-[5/5] lg:p-2 p-4">
             {image && (
               <Image
                 className="object-cover w-full fadeIn"

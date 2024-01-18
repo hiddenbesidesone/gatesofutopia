@@ -430,20 +430,22 @@ function Footer({menu}) {
       divider={isHome ? 'none' : 'top'}
       as="footer"
       role="contentinfo"
-      className={`w-full grid md:grid-cols-3 border-solid border-gray-400 border-y`}
+      className={`w-full border-solid border-gray-400 border-y`}
     >
+      {/*
       <div className="col-span-2 py-3 px-3 hb1-font-custom-small">
-        {/*<CountrySelector />*/}
+        <CountrySelector />
       </div>
+      */}
       <div className="grid grid-cols-12 col-span-1 border-gray-400 md:border-l hb1-font-custom-small text-center">
-        <div className="col-span-6 py-3 px-3">&copy; {new Date().getFullYear()} Gates Of Utopia ㋡</div>
-        <div className="col-span-4 border-solid border-gray-400 border-l py-3 px-3">
+        <div className="col-span-4 md:col-span-6 py-3 px-3">&copy; {new Date().getFullYear()} Gates Of Utopia ㋡</div>
+        <div className="col-span-4 md:col-span-4 border-solid border-gray-400 border-l py-3 px-3">
           <Link to={`/contact`} prefetch="intent">Contact &amp; Support</Link>
         </div>
-        <div className="col-span-1 border-solid border-gray-400 border-l py-3 px-3">
+        <div className="col-span-2 md:col-span-1 border-solid border-gray-400 border-l py-3 px-3">
           <Link to={`https://google.com`} prefetch="intent" target="blank">IG</Link>
         </div>
-        <div className="col-span-1 border-solid border-gray-400 border-l py-3 px-3">
+        <div className="col-span-2 md:col-span-1 border-solid border-gray-400 border-l py-3 px-3">
           <Link to={`/btcpayments`} prefetch="intent">
             <Image
               src="https://cdn.shopify.com/s/files/1/0795/8003/7439/files/bitcoin-logo.png?v=1690144285"

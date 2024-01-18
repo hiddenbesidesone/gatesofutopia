@@ -2,12 +2,8 @@ import {Image} from '@shopify/hydrogen';
 
 /**
  * A client component that defines a media gallery for hosting images, 3D models, and videos of products
- * @param {{
- *   media: MediaFragment[];
- *   className?: string;
- * }}
  */
-export function ProductGallery({media, className}) {
+export function ProductGallery({ media, className }) {
   if (!media.length) {
     return null;
   }
@@ -23,7 +19,7 @@ export function ProductGallery({media, className}) {
 
         const image =
           med.__typename === 'MediaImage'
-            ? {...med.image, altText: med.alt || 'Product image'}
+            ? { ...med.image, altText: med.alt || 'Product image' }
             : null;
 
         const style = [
@@ -53,5 +49,6 @@ export function ProductGallery({media, className}) {
     </div>
   );
 }
+
 
 /** @typedef {import('storefrontapi.generated').MediaFragment} MediaFragment */

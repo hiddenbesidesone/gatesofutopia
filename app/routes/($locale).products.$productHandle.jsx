@@ -143,9 +143,6 @@ export default function Product() {
     <>
       <Section className="px-0 md:px-3 lg:px-3">
 
-        <ModelViewer data={product.media.nodes[0]} key={product.id} enableZoom={true} enableRotate={true} alt={product.id} className="object-cover w-full h-full aspect-square fadeIn" />
-        <MediaFile data={product.media.nodes[1]} key={product.id} className="object-cover w-full h-full aspect-square fadeIn" />
-
         <div className="grid items-start md:gap-6 lg:gap-20 md:grid-cols-2 lg:grid-cols-3">
           <ProductGallery
             media={media.nodes}
@@ -199,6 +196,31 @@ export default function Product() {
           </div>
         </div>
       </Section>
+
+      {/*
+      <Section className="px-0 md:px-3 lg:px-3">
+        <div className="grid grid-cols-4">
+
+          <div>
+              <Image className={`w-full h-full aspect-square object-cover`} data={product.featuredImage} />
+          </div>
+          <div>
+            <ModelViewer data={product.media.nodes[0]} key={product.id} enableZoom={true} enableRotate={true} alt={product.id} className="object-cover w-full h-full aspect-square fadeIn" />
+          </div>
+          <div>
+            <MediaFile data={product.media.nodes[1]} key={product.id} className="object-cover w-full h-full aspect-square fadeIn" />
+          </div>
+          <div>
+            <MediaFile data={product.media.nodes[2]} key={product.id} className="object-cover w-full h-full aspect-square fadeIn" />
+          </div>
+          <div>
+            <MediaFile data={product.media.nodes[3]} key={product.id} className="object-cover w-full h-full aspect-square fadeIn" />
+          </div>
+        </div>
+    </Section >
+    */}
+
+
       <Suspense fallback={<Skeleton className="h-32" />}>
         <Await
           errorElement="There was a problem loading related products"
@@ -256,7 +278,7 @@ export function ProductForm({variants}) {
                 key={option.name}
                 className="flex flex-col flex-wrap mb-4 gap-y-2 last:mb-0"
               >
-                <legend class="whitespace-pre-wrap max-w-prose text-copy min-w-[4rem]">{option.name}</legend>
+                <legend className="whitespace-pre-wrap max-w-prose text-copy min-w-[4rem]">{option.name}</legend>
                 <div className="flex flex-wrap items-baseline gap-4">
                   {option.values.length > 7 ? (
                     <div className="relative w-full">
@@ -492,6 +514,16 @@ const PRODUCT_QUERY = `#graphql
       handle
       descriptionHtml
       description
+      caption: metafield(namespace: "newmedia", key: "caption") {
+      value
+      }
+    	featuredImage{
+        id
+        url
+        altText
+        width
+        height
+      }
       options {
         name
         values
