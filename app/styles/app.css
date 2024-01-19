@@ -10,15 +10,15 @@
   /* Backgrounds, borders, etc. */
   --color-accent: 15 255 80;
   /* Labels like "On sale" */
-  --font-size-fine: 0.73rem;
+  --font-size-fine: 0.8rem;
   /* text-xs */
-  --font-size-copy: 0.73rem;
+  --font-size-copy: 0.8rem;
   /* text-base */
-  --font-size-lead: 0.73rem;
+  --font-size-lead: 0.8rem;
   /* text-lg */
-  --font-size-heading: 0.73rem;
+  --font-size-heading: 0.8rem;
   /* text-2xl */
-  --font-size-display: 0.73rem;
+  --font-size-display: 0.8rem;
   /* text-4xl */
   --color-shop-pay: #5a31f4;
   --shop-pay-button--width: 100%;
@@ -34,9 +34,9 @@
 
   @media (min-width: 48em) {
     --height-nav: 3rem;
-    --font-size-heading: 0.73rem;
+    --font-size-heading: 0.8rem;
     /* text-4xl */
-    --font-size-display: 0.73rem;
+    --font-size-display: 0.8rem;
     /* text-6xl */
   }
 
@@ -209,7 +209,7 @@ shop-pay-button {
 
 
 .hb1-font-custom-small {
-  font-size: 0.73em;
+  font-size: 0.8em;
 }
 
 .hb1-font-custom-medium {

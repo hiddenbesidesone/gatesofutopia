@@ -149,7 +149,7 @@ export default function Product() {
             className="w-full lg:col-span-2"
           />
           <div className="sticky md:-mb-nav md:top-nav md:-translate-y-nav md:h-screen md:pt-nav hiddenScroll md:overflow-y-scroll border-solid border-gray-400 border-t md:border-t-0">
-            <section className="flex flex-col w-full max-w-xl gap-3 p-3 lg:p-6 md:mx-auto md:max-w-sm md:px-0">
+            <section className="flex flex-col w-full max-w-xl gap-3 p-3 lg:p-6 md:mx-auto md:px-0">
               <div className="grid gap-2">
                 <Heading as="h1" className="whitespace-normal">
                   {title}
