@@ -23,7 +23,7 @@ export function SortFilter({
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div className="flex items-center justify-between w-full">
+      <div className="flex items-center justify-between w-full p-3">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={
@@ -38,7 +38,7 @@ export function SortFilter({
         <div
           className={`transition-all duration-200 ${
             isOpen
-              ? 'opacity-100 min-w-full md:min-w-[240px] md:w-[240px] md:pr-8 max-h-full'
+            ? 'opacity-100 min-w-full md:min-w-[240px] md:w-[240px] md:pr-8 max-h-full border-solid border-gray-400 border-t border-r'
               : 'opacity-0 md:min-w-[0px] md:w-[0px] pr-0 max-h-0 md:max-h-full'
           }`}
         >
@@ -71,7 +71,7 @@ export function FiltersDrawer({filters = [], appliedFilters = []}) {
         const to = getFilterLink(option.input, params, location);
         return (
           <Link
-            className="focus:underline hover:underline"
+            className="hb1-font-custom-small focus:underline hover:underline"
             prefetch="intent"
             to={to}
           >
@@ -93,7 +93,7 @@ export function FiltersDrawer({filters = [], appliedFilters = []}) {
         <Heading as="h4" size="lead" className="pb-4">
           Filter By
         </Heading>
-        <div className="divide-y">
+        <div className="divide-y p-3">
           {filters.map((filter) => (
             <Disclosure as="div" key={filter.id} className="w-full">
               {({open}) => (
@@ -316,9 +316,9 @@ export default function SortMenu() {
 
   return (
     <Menu as="div" className="relative z-40">
-      <Menu.Button className="flex items-center">
+      <Menu.Button className="flex items-center uppercase hb1-font-custom-small">
         <span className="px-2">
-          <span className="px-2 font-medium">Sort by:</span>
+          <span className="px-2">Sort by:</span>
           <span>{(activeItem || items[0]).label}</span>
         </span>
         <IconCaret />
@@ -332,7 +332,7 @@ export default function SortMenu() {
           <Menu.Item key={item.label}>
             {() => (
               <Link
-                className={`block text-sm pb-2 px-3 ${
+                className={`block hb1-font-custom-small pb-2 ${
                   activeItem?.key === item.key ? 'font-bold' : 'font-normal'
                 }`}
                 to={getSortLink(item.key, params, location)}

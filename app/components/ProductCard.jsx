@@ -82,12 +82,12 @@ export function ProductCard({
           <div className="w-full absolute bottom-0 left-0 gap-1 p-3">
             <div className="flex flex-row justify-between">
 
-              <Text className="w-full overflow-hidden whitespace-nowrap text-ellipsis" as="h3">
+              <Text className="w-full overflow-hidden text-ellipsis whitespace-pre-wrap text-display px-1 py-1 bg-white rounded-sm" as="h3">
                 {product.title}
               </Text>
 
-              <div className="bg-white rounded-sm">
-                <Text className="flex gap-4">
+              <div>
+                <Text className="flex gap-4 whitespace-pre-wrap text-display px-1 py-1 bg-white rounded-sm">
                   <Money withoutTrailingZeros data={price} />
                   {isDiscounted(price, compareAtPrice) && (
                     <CompareAtPrice

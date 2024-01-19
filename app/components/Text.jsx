@@ -128,7 +128,7 @@ export function Section({
 }) {
   const paddings = {
     x: 'px-3 md:px-3 lg:px-3 py-3 md:py-3 lg:py-3',
-    y: 'py-3 md:py-3 lg:py-3 lg:pb-8',
+    y: 'pb-8',
     swimlane: 'pt-4 md:pt-8 lg:pt-12 md:pb-4 lg:pb-8',
     all: 'p-0 md:p-0 md:pt-0 lg:p-0 lg:pt-0',
   };
@@ -182,11 +182,11 @@ export function PageHeader({
   ...props
 }) {
   const variants = {
-    default: 'grid w-full gap-8 p-3 pb-0 md:p-3 md:pb-0 lg:p-3 lg:pb-0 justify-items-start border-solid border-gray-400 border-b',
+    default: 'grid w-full gap-1 p-3 justify-items-start border-solid border-gray-400 border-b',
     blogPost:
-      'grid md:text-center w-full gap-4 p-6 py-8 md:p-8 lg:p-12 md:justify-items-center',
+      'grid md:text-center w-full gap-1 p-3 md:justify-items-center',
     allCollections:
-      'flex justify-between items-baseline gap-8 p-3 pb-0 md:p-3 md:pb-0 lg:p-3 lg:pb-0',
+      'flex justify-between items-baseline gap-1 p-3',
   };
 
   const styles = clsx(variants[variant], className);
@@ -194,7 +194,7 @@ export function PageHeader({
   return (
     <header {...props} className={styles}>
       {heading && (
-        <Heading as="h1" width="narrow" size="heading" className="inline-block pb-3">
+        <Heading as="h1" width="narrow" size="heading" className="inline-block">
           {heading}
         </Heading>
       )}
