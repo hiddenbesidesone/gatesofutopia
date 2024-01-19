@@ -131,7 +131,7 @@ shop-pay-button {
       @apply font-sans text-primary;
     }
 
-    @apply prose mx-auto mb-12 grid justify-center font-serif text-primary;
+    @apply prose mx-auto mb-12 grid justify-center font-sans text-primary;
 
     p,
     ul,

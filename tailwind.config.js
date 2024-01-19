@@ -39,7 +39,7 @@ export default {
         mobileGallery: 'calc(100vw - 3rem)',
       },
       fontFamily: {
-        sans: ['Fragment Mono', 'monospace', 'sans-serif'],
+        sans: ['Fragment Mono', 'monospace', 'sans-serif'], //Fragment Mono
         serif: ['Anonymous Pro', 'monospace', 'sans-serif'],
       },
       fontSize: {
