@@ -63,7 +63,7 @@ export function Hero({
               {byline.value}
             </Text>
           )}
-          {cta?.value && <Text size="lead" className="px-1 py-1 bg-white rounded-sm">{cta.value}</Text>}
+          {cta?.value && <Text size="lead" className="px-1 py-1 bg-white rounded-sm transition-colors duration-300 ease-in-out hover:bg-black hover:text-white">{cta.value}</Text>}
         </div>
       </section>
     </Link>

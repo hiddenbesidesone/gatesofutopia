@@ -20,7 +20,7 @@ export function FeaturedCollections({
         {collectionsWithImage.map((collection) => {
           return (
             <Link key={collection.id} to={`/collections/${collection.handle}`}>
-              <div className="grid gap-1">
+              <div className="grid gap-1 relative">
                 <div className="card-image bg-primary/5 aspect-[1/1]">
                   {collection?.image && (
                     <Image
@@ -31,7 +31,9 @@ export function FeaturedCollections({
                     />
                   )}
                 </div>
-                <Heading size="copy" className="px-3 py-3">{collection.title}</Heading>
+                <div className="absolute bottom-0 left-0">
+                  <Heading size="copy" className="mb-3 ml-3 whitespace-pre-wrap text-display max-w-md px-1 py-1 bg-white rounded-sm dark:text-primary text-contrast">{collection.title}</Heading>
+                </div>
               </div>
             </Link>
           );

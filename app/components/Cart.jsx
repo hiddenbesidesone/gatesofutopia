@@ -48,7 +48,7 @@ export function CartDetails({layout, cart}) {
   // @todo: get optimistic cart cost
   const cartHasItems = !!cart && cart.totalQuantity > 0;
   const container = {
-    drawer: 'grid grid-cols-1 h-screen-no-nav grid-rows-[1fr_auto]',
+    drawer: 'grid grid-cols-1 h-screen-no-nav grid-rows-[1fr_auto] pt-4',
     page: 'w-full pb-12 grid md:grid-cols-2 md:items-start gap-8 md:gap-8 lg:gap-12',
   };
 
@@ -156,7 +156,7 @@ function CartLines({layout = 'drawer', lines: cartLines}) {
     y > 0 ? 'border-t' : '',
     layout === 'page'
       ? 'flex-grow md:translate-y-4'
-      : 'px-6 pb-6 sm-max:pt-2 overflow-auto transition md:px-12',
+      : 'px-4 pb-4 sm-max:pt-2 overflow-auto transition',
   ]);
 
   return (
@@ -201,8 +201,8 @@ function CartCheckoutActions({checkoutUrl}) {
  */
 function CartSummary({cost, layout, children = null}) {
   const summary = {
-    drawer: 'grid gap-4 p-6 border-t md:px-12',
-    page: 'sticky top-nav grid gap-6 p-4 md:px-6 md:translate-y-4 bg-primary/5 rounded w-full',
+    drawer: 'grid gap-4 p-6 border-t md:4',
+    page: 'sticky top-nav grid gap-6 p-4 md:px-3 md:translate-y-4 bg-primary/5 rounded w-full',
   };
 
   return (
