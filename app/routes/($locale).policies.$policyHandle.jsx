@@ -57,7 +57,7 @@ export default function Policies() {
           className="grid items-start flex-grow gap-4 md:sticky top-36 md:w-5/12"
         >
           <Button
-            className="justify-self-start"
+            className="justify-self-start hb1-font-custom-small"
             variant="inline"
             to={'/policies'}
           >
@@ -67,7 +67,7 @@ export default function Policies() {
         <div className="flex-grow w-full md:w-7/12">
           <div
             dangerouslySetInnerHTML={{__html: policy.body}}
-            className="prose dark:prose-invert"
+            className="prose dark:prose-invert hb1-font-custom-small p-3"
           />
         </div>
       </Section>

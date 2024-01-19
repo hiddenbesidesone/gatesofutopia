@@ -35,12 +35,12 @@ export default function Policies() {
 
   return (
     <>
-      <PageHeader heading="Policies" />
+      <PageHeader heading="Policies /" />
       <Section padding="x" className="mb-24">
         {policies.map((policy) => {
           return (
             policy && (
-              <Heading className="font-normal text-heading" key={policy.id}>
+              <Heading className="font-normal text-heading p-1 border-solid border-gray-400 border-b" key={policy.id}>
                 <Link to={`/policies/${policy.handle}`}>{policy.title}</Link>
               </Heading>
             )
