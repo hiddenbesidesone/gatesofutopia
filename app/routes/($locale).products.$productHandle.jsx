@@ -201,21 +201,33 @@ export default function Product() {
       <Section className="px-0 md:px-3 lg:px-3">
         <div className="grid grid-cols-4">
 
-          <div>
-              <Image className={`w-full h-full aspect-square object-cover`} data={product.featuredImage} />
-          </div>
-          <div>
-            <ModelViewer data={product.media.nodes[0]} key={product.id} enableZoom={true} enableRotate={true} alt={product.id} className="object-cover w-full h-full aspect-square fadeIn" />
-          </div>
+          {product.featuredImage && (
+            <div>
+                <Image className={`w-full h-full aspect-square object-cover`} data={product.featuredImage} />
+            </div>
+          )}
+
+          {product.media.node[0] && (
+            <div>
+              <ModelViewer data={product.media.nodes[0]} key={product.id} enableZoom={true} enableRotate={true} alt={product.id} className="object-cover w-full h-full aspect-square fadeIn" />
+            </div>
+          )}
+          {product.media.node[1] && (
           <div>
             <MediaFile data={product.media.nodes[1]} key={product.id} className="object-cover w-full h-full aspect-square fadeIn" />
           </div>
+          )}
+          {product.media.node[2] && (
           <div>
             <MediaFile data={product.media.nodes[2]} key={product.id} className="object-cover w-full h-full aspect-square fadeIn" />
           </div>
+          )}
+          {product.media.node[3] && (
           <div>
             <MediaFile data={product.media.nodes[3]} key={product.id} className="object-cover w-full h-full aspect-square fadeIn" />
           </div>
+          )}
+
         </div>
     </Section >
     */}
