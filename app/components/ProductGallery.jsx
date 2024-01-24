@@ -25,18 +25,47 @@ export function ProductGallery({ media, className }) {
         ].join(' ');
 
         return (
-          <div
-
-            className={style} key={med.id}>
+          <div className={style} key={med.id}>
+            {med.__typename === 'MediaImage' && (
+              <MediaFile
+                data={med} // Pass the entire media object
+                sizes={
+                  isFirst || isFourth ? '(min-width: 48em) 60vw, 90vw' : '(min-width: 48em) 30vw, 90vw'
+                }
+                alt='Gates Of Utopia'
+                className="object-cover w-full h-full aspect-square fadeIn"
+                loading={i === 0 ? 'eager' : 'lazy'} // Adjust loading behavior as needed
+              />
+            )}
+            {med.__typename === 'Video' && (
             <MediaFile
               data={med} // Pass the entire media object
-              aspectRatio={!isFirst && !isFourth ? '4/5' : undefined}
               sizes={
                 isFirst || isFourth ? '(min-width: 48em) 60vw, 90vw' : '(min-width: 48em) 30vw, 90vw'
               }
               className="object-cover w-full h-full aspect-square fadeIn"
-              loading={i === 0 ? 'eager' : 'lazy'} // Adjust loading behavior as needed
+              loop={true}
+              autoPlay={true}
             />
+            )}
+            {med.__typename === 'Model3d' && (
+              <MediaFile
+                data={med} // Pass the entire media object
+                sizes={
+                  isFirst || isFourth ? '(min-width: 48em) 60vw, 90vw' : '(min-width: 48em) 30vw, 90vw'
+                }
+                className="object-cover w-full h-full aspect-square"
+              />
+            )}
+            {med.__typename === 'ExternalVideo' && (
+              <MediaFile
+                data={med} // Pass the entire media object
+                sizes={
+                  isFirst || isFourth ? '(min-width: 48em) 60vw, 90vw' : '(min-width: 48em) 30vw, 90vw'
+                }
+                className="object-cover w-full h-full aspect-square fadeIn"
+              />
+            )}
           </div>
         );
       })}
